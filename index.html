@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weather App</title>
+    <link rel="icon" href="assets/sun.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Weather</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Select Area
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">New Delhi</a></li>
+                  <li><a class="dropdown-item" href="#">Farrukhabad</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="false" style="cursor: pointer;">Join Us</a>
+              </li> -->
+            </ul>
+            <form class="d-flex" role="search">
+              <input id="city" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit" id="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <div class="container py-3">
+        <header>
+          <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
+              <!-- <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="me-2" viewBox="0 0 118 94" role="img"><title>Bootstrap</title><path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z" fill="currentColor"></path></svg> -->
+              <svg height="32px" width="40px" class="me-2" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512.00 512.00" xml:space="preserve" fill="#000000" stroke="#000000" stroke-width="9.216"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="1.024"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:#000000;} </style> <g> <path class="st0" d="M39.682,290.046c-10.879-10.9-17.574-25.833-17.577-42.444c0.004-16.612,6.698-31.545,17.577-42.438 c10.896-10.886,25.832-17.581,42.44-17.581c6.2,0,12.146,0.933,17.75,2.669l12.888,3.997l1.378-13.426 c2.081-20.279,11.678-38.312,25.998-51.314c14.333-13.002,33.252-20.889,54.123-20.896c14.229,0,27.515,3.667,39.097,10.118 c11.574,6.444,21.416,15.687,28.588,26.787l18.567-12.005c-9.142-14.136-21.642-25.876-36.399-34.092 c-14.754-8.231-31.796-12.917-49.854-12.917c-26.515-0.006-50.787,10.104-68.981,26.637 c-15.288,13.871-26.299,32.363-31.039,53.238c-3.961-0.588-8.005-0.904-12.117-0.904c-22.643-0.008-43.241,9.214-58.07,24.054 C9.21,204.352-0.007,224.954,0,247.601c-0.007,22.646,9.206,43.248,24.053,58.074c14.825,14.846,35.427,24.068,58.07,24.053h0.714 v-22.101h-0.714C65.515,307.619,50.582,300.924,39.682,290.046z"></path> <path class="st0" d="M487.182,280.832c-12.92-12.93-30.109-21.642-49.201-24.06c-1.664-29.888-14.344-56.918-34.2-76.752 c-21.298-21.32-50.844-34.537-83.361-34.53c-30.458-0.008-58.321,11.596-79.224,30.583c-17.972,16.31-30.852,38.168-36.069,62.839 c-5.052-0.84-10.222-1.314-15.5-1.314c-25.908-0.007-49.462,10.528-66.43,27.52c-16.985,16.964-27.523,40.522-27.519,66.426 c-0.004,25.912,10.534,49.47,27.519,66.433c16.967,16.985,40.521,27.519,66.43,27.519h237.637c23.361,0,44.616-9.5,59.918-24.821 c15.317-15.298,24.825-36.553,24.818-59.918C512.007,317.393,502.499,296.131,487.182,280.832z M471.55,385.039 c-11.37,11.352-26.956,18.341-44.286,18.348H189.627c-19.873-0.007-37.766-8.022-50.801-21.039 c-13.016-13.038-21.036-30.928-21.042-50.805c0.006-19.87,8.026-37.766,21.042-50.798c13.036-13.017,30.928-21.04,50.801-21.046 c7.42,0,14.542,1.119,21.251,3.2l12.881,3.983l1.378-13.419c2.479-24.11,13.896-45.559,30.92-61.023 c17.039-15.449,39.546-24.842,64.363-24.842c26.486,0,50.363,10.698,67.732,28.057c17.351,17.366,28.054,41.246,28.057,67.732 c0,0.933-0.039,2.024-0.086,3.301l-0.42,11.89l11.743-0.452c17.254,0.057,32.772,7.032,44.103,18.341 c11.352,11.373,18.341,26.959,18.345,44.289C489.891,358.087,482.902,373.672,471.55,385.039z"></path> </g> </g></svg>
+              <span class="fs-4">Weather</span>
+            </a>
+      
+            <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+              <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">DELHI</a>
+              <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">LUCKNOW</a>
+              <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">KANPUR NAGAR</a>
+              <a class="py-2 link-body-emphasis text-decoration-none" href="#">HYDRABAD</a>
+            </nav>
+          </div>
+      
+          <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+            <h1 class="display-4 fw-normal text-body-emphasis" >WEATHER FOR <B><span id="cityName"></span></B> </h1>
+            <!-- <p class="fs-5 text-body-secondary">Developed a minimalist weather app using Bootstrap and the API. Leveraged Bootstrap for responsive styling and integrated real-time weather data from the API. Implemented features such as temperature display, location search, and weather conditions. Demonstrated proficiency in front-end development and API integration</p> -->
+          </div>
+        </header>
+      
+        <main>
+          <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+            <div class="col">
+              <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                  <h4 class="my-0 fw-normal">TEMPERATURE</h4>
+                </div>
+                <div class="card-body">
+                  <h1 class="card-title pricing-card-title">
+                    <b><span id="temp2"></span></b><sup><span>&#8451;</span></sup>
+                  </h1>
+                  <ul class="list-unstyled mt-3 mb-4">
+                    <li>Temperature is <b><span id="temp"></span></b></li>
+                    <li>Mininum temperature is <b><span id="min_temp"></span></b></li>
+                    <li>Maximum temperature is <b><span id="max_temp"></span></b></li>
+                  </ul>
+                  <!-- <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button> -->
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                  <h4 class="my-0 fw-normal">HUMIDITY</h4>
+                </div>
+                <div class="card-body">
+                  <h1 class="card-title pricing-card-title"><b><span id="humidity2"></span></b><b> %</b></h1>
+                  <ul class="list-unstyled mt-3 mb-4">
+                    <li>Cloud PCT is <b><span id="cloud_pct"></span></b></li>
+                    <li>Feels like is <b><span id="feels_like"></span></b></li>
+                    <li>Humidity is <b><span id="humidity"></span</b></li>
+                  </ul>
+                  <!-- <button type="button" class="w-100 btn btn-lg btn-primary">Get started</button> -->
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                <div class="card-header py-3 text-bg-primary border-primary">
+                  <h4 class="my-0 fw-normal">WIND</h4>
+                </div>
+                <div class="card-body">
+                  <h1 class="card-title pricing-card-title"><b><span id="wind_speed2"></span></b><sub> km/h</sub></h1>
+                  <ul class="list-unstyled mt-3 mb-4">
+                    <li>Wind Speed is <b><span id="wind_speed"></span></b></li>
+                    <!-- <li>Wind degree is <b><span id="wind_degrees"></span></b></li> -->
+                    <li>Sunrise Time is <b><span id="sunrise"></span></b></li>
+                    <li>Sunset is <b><span id="sunset"></span</b></li>
+                  </ul>
+                  <!-- <button type="button" class="w-100 btn btn-lg btn-primary">Contact us</button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+      
+        
+        <footer class="pt-4 my-md-5 pt-md-5 border-top">
+          <div class="row">
+            <div class="col-12 col-md">
+                 <svg height="19px" width="24px" class="me-2" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512.00 512.00" xml:space="preserve" fill="#000000" stroke="#000000" stroke-width="9.216"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="1.024"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:#000000;} </style> <g> <path class="st0" d="M39.682,290.046c-10.879-10.9-17.574-25.833-17.577-42.444c0.004-16.612,6.698-31.545,17.577-42.438 c10.896-10.886,25.832-17.581,42.44-17.581c6.2,0,12.146,0.933,17.75,2.669l12.888,3.997l1.378-13.426 c2.081-20.279,11.678-38.312,25.998-51.314c14.333-13.002,33.252-20.889,54.123-20.896c14.229,0,27.515,3.667,39.097,10.118 c11.574,6.444,21.416,15.687,28.588,26.787l18.567-12.005c-9.142-14.136-21.642-25.876-36.399-34.092 c-14.754-8.231-31.796-12.917-49.854-12.917c-26.515-0.006-50.787,10.104-68.981,26.637 c-15.288,13.871-26.299,32.363-31.039,53.238c-3.961-0.588-8.005-0.904-12.117-0.904c-22.643-0.008-43.241,9.214-58.07,24.054 C9.21,204.352-0.007,224.954,0,247.601c-0.007,22.646,9.206,43.248,24.053,58.074c14.825,14.846,35.427,24.068,58.07,24.053h0.714 v-22.101h-0.714C65.515,307.619,50.582,300.924,39.682,290.046z"></path> <path class="st0" d="M487.182,280.832c-12.92-12.93-30.109-21.642-49.201-24.06c-1.664-29.888-14.344-56.918-34.2-76.752 c-21.298-21.32-50.844-34.537-83.361-34.53c-30.458-0.008-58.321,11.596-79.224,30.583c-17.972,16.31-30.852,38.168-36.069,62.839 c-5.052-0.84-10.222-1.314-15.5-1.314c-25.908-0.007-49.462,10.528-66.43,27.52c-16.985,16.964-27.523,40.522-27.519,66.426 c-0.004,25.912,10.534,49.47,27.519,66.433c16.967,16.985,40.521,27.519,66.43,27.519h237.637c23.361,0,44.616-9.5,59.918-24.821 c15.317-15.298,24.825-36.553,24.818-59.918C512.007,317.393,502.499,296.131,487.182,280.832z M471.55,385.039 c-11.37,11.352-26.956,18.341-44.286,18.348H189.627c-19.873-0.007-37.766-8.022-50.801-21.039 c-13.016-13.038-21.036-30.928-21.042-50.805c0.006-19.87,8.026-37.766,21.042-50.798c13.036-13.017,30.928-21.04,50.801-21.046 c7.42,0,14.542,1.119,21.251,3.2l12.881,3.983l1.378-13.419c2.479-24.11,13.896-45.559,30.92-61.023 c17.039-15.449,39.546-24.842,64.363-24.842c26.486,0,50.363,10.698,67.732,28.057c17.351,17.366,28.054,41.246,28.057,67.732 c0,0.933-0.039,2.024-0.086,3.301l-0.42,11.89l11.743-0.452c17.254,0.057,32.772,7.032,44.103,18.341 c11.352,11.373,18.341,26.959,18.345,44.289C489.891,358.087,482.902,373.672,471.55,385.039z"></path> </g> </g></svg>
+              <small class="d-block mb-3 text-body-secondary">© 2017–2024</small>
+            </div>
+            <div class="col-6 col-md">
+              <h5>Features</h5>
+              <ul class="list-unstyled text-small">
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Cool stuff</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Random feature</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Team feature</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Stuff for developers</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Another one</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Last time</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-md">
+              <h5>Resources</h5>
+              <ul class="list-unstyled text-small">
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Resource</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Resource name</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Another resource</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Final resource</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-md">
+              <h5>About</h5>
+              <ul class="list-unstyled text-small">
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Team</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Locations</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Privacy</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Terms</a></li>
+              </ul>
+            </div>
+          </div>
+        </footer>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
